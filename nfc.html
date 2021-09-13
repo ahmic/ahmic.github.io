@@ -66,7 +66,8 @@ if (nfcPermissionStatus.state === "granted") {
       var theDiv = document.getElementById("log");
 var content = document.createTextNode(content);
 theDiv.appendChild(content);
-      theDiv.appendChild('<br/>');
+      var br = document.createElement("br");
+    theDiv.appendChild(br);
     }
   </script>
 </body>
