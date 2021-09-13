@@ -4,6 +4,8 @@
   <title>NFC test</title>
   
   <button id="scanButton">Scan</button>
+  
+  <div id="log"></div>
 </head>
 
 <body>
@@ -16,14 +18,17 @@ async function startScanning() {
   await ndef.scan();
   ndef.onreading = event => {
     /* handle NDEF messages */
+    
   };
 }
 
 const nfcPermissionStatus = await navigator.permissions.query({ name: "nfc" });
 if (nfcPermissionStatus.state === "granted") {
   // NFC access was previously granted, so we can start NFC scanning now.
+  writelog('granted: start scanning');
   startScanning();
 } else {
+    writelog('nije granted');
   // Show a "scan" button.
   document.querySelector("#scanButton").style.display = "block";
   document.querySelector("#scanButton").onclick = event => {
@@ -31,6 +36,12 @@ if (nfcPermissionStatus.state === "granted") {
     startScanning();
   };
 }
+    
+    function writelog(content) {
+      var theDiv = document.getElementById("log");
+var content = document.createTextNode(content);
+theDiv.appendChild(content); 
+    }
   </script>
 </body>
 
