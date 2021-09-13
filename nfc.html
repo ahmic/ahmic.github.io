@@ -43,7 +43,7 @@ async function startScanning() {
     
 function startWrite() {
  ndef.write({
-  records: [{ recordType: "url", data: "https://instamenu.app/m/dolce-roma?table=sala.4" }]
+  records: [{ recordType: "url", data: "https://instamenu.app/m/dolce-roma" }]
 }).then(() => {
   writelog("Message written.");
 }).catch(error => {
