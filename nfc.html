@@ -43,7 +43,7 @@ async function startScanning() {
     
 function startWrite() {
  ndef.write({
-  records: [{ recordType: "url", data: "https://w3c.github.io/web-nfc/" }]
+  records: [{ recordType: "url", data: "https://instamenu.app/m/dolce-roma?table=sala.4" }]
 }).then(() => {
   writelog("Message written.");
 }).catch(error => {
