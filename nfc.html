@@ -41,6 +41,16 @@ async function startScanning() {
   };
 }
     
+function startWrite() {
+ ndef.write({
+  records: [{ recordType: "url", data: "https://w3c.github.io/web-nfc/" }]
+}).then(() => {
+  writelog("Message written.");
+}).catch(error => {
+  writelog(`Write failed :-( try again: ${error}.`);
+}); 
+}
+    
 
 async function setup() {
   const nfcPermissionStatus = await navigator.permissions.query({ name: "nfc" });
@@ -48,7 +58,8 @@ async function setup() {
 if (nfcPermissionStatus.state === "granted") {
   // NFC access was previously granted, so we can start NFC scanning now.
   writelog('granted: start scanning');
-  startScanning();
+  //startScanning();
+  startWrite();
 } else {
     writelog('nije granted');
   // Show a "scan" button.
