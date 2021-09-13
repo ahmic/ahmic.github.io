@@ -18,12 +18,7 @@ async function startScanning() {
   await ndef.scan();
   ndef.onreading = event => {
     /* handle NDEF messages */
-    
-  };
-}
-    
-    ndef.onreading = event => {
-  const message = event.message;
+    const message = event.message;
   for (const record of message.records) {
     writelog("Record type:  " + record.recordType);
     writelog("MIME type:    " + record.mediaType);
@@ -39,7 +34,9 @@ async function startScanning() {
         // TODO: Handle other records with record data.
     }
   }
-};
+  };
+}
+    
 
 async function setup() {
   const nfcPermissionStatus = await navigator.permissions.query({ name: "nfc" });
