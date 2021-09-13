@@ -22,7 +22,9 @@ async function startScanning() {
   };
 }
 
-const nfcPermissionStatus = await navigator.permissions.query({ name: "nfc" });
+async function setup() {
+  const nfcPermissionStatus = await navigator.permissions.query({ name: "nfc" });
+    
 if (nfcPermissionStatus.state === "granted") {
   // NFC access was previously granted, so we can start NFC scanning now.
   writelog('granted: start scanning');
@@ -35,7 +37,10 @@ if (nfcPermissionStatus.state === "granted") {
     // Prompt user to allow UA to send and receive info when they tap NFC devices.
     startScanning();
   };
+} 
 }
+    
+    setup();
     
     function writelog(content) {
       var theDiv = document.getElementById("log");
