@@ -17,6 +17,7 @@
 async function startScanning() {
   await ndef.scan();
   ndef.onreading = event => {
+    writelog('tag detected');
     /* handle NDEF messages */
     const message = event.message;
   for (const record of message.records) {
