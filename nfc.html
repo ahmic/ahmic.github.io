@@ -65,7 +65,8 @@ if (nfcPermissionStatus.state === "granted") {
     function writelog(content) {
       var theDiv = document.getElementById("log");
 var content = document.createTextNode(content);
-theDiv.appendChild(content + '<br/>'); 
+theDiv.appendChild(content);
+      theDiv.appendChild('<br/>');
     }
   </script>
 </body>
