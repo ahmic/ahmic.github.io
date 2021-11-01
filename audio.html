@@ -11,16 +11,25 @@
        <button>Want to play sound</button>
 
         <audio id="customaudio" src="https://v3-fastupload.s3-accelerate.amazonaws.com/1635789485-short_notification.mp3?X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIASQBHBZCRVR4NVFHK%2F20211101%2Fap-southeast-1%2Fs3%2Faws4_request&X-Amz-Date=20211101T175818Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Signature=7631f3498eec72b9694489eb4d1d2a95097bfc935e7421710b8711339c2208ff" muted />
-       <div> 
-  <button onclick="document.getElementById('customaudio').play();shouldPlay=true;">Play</button> 
-  <button onclick="document.getElementById('customaudio').pause()">Pause</button> 
-  <button onclick="document.getElementById('customaudio').volume += 0.1">Vol +</button> 
-  <button onclick="document.getElementById('customaudio').volume -= 0.1">Vol -</button> 
-</div>
+       
     </div>
 
     <script type="text/javascript">
         var shouldPlay = false;
+        
+        function unlockAudio() {
+var sound = document.getElementById('customaudio');
+
+    sound.play();
+    sound.pause();
+    sound.currentTime = 0;
+
+    document.body.removeEventListener('click', unlockAudio)
+    document.body.removeEventListener('touchstart', unlockAudio)
+}
+
+document.body.addEventListener('click', unlockAudio);
+document.body.addEventListener('touchstart', unlockAudio);
         
         window.addEventListener('touchstart', function () {
         
