@@ -12,7 +12,16 @@
     </div>
 
     <script type="text/javascript">
+        var shouldPlay = false;
+        
+        window.addEventListener('touchstart', function () {
+        
+            shouldPlay = true;
+        });
+        
         function playNow() {
+            if (!shouldPlay) return;
+            
             document.getElementById('customaudio').muted = false;
             // document.getElementById('customaudio').src = './not.mp3';
             
