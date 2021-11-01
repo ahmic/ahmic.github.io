@@ -10,7 +10,13 @@
        
        <button>Want to play sound</button>
 
-        <audio id="customaudio" autoPlay muted />
+        <audio id="customaudio" muted />
+       <div> 
+  <button onclick="document.getElementById('customaudio').play();shouldPlay=true;">Play</button> 
+  <button onclick="document.getElementById('customaudio').pause()">Pause</button> 
+  <button onclick="document.getElementById('customaudio').volume += 0.1">Vol +</button> 
+  <button onclick="document.getElementById('customaudio').volume -= 0.1">Vol -</button> 
+</div>
     </div>
 
     <script type="text/javascript">
@@ -20,6 +26,8 @@
         
             shouldPlay = true;
         });
+        
+        
         
         function playNow() {
             if (!shouldPlay) return;
