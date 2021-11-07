@@ -9,7 +9,7 @@
    <div>
         <h2>Test webpage</h2>
        
-       <button>I want to hear notifications</button>
+        <button id="testtrigger">I want to hear notifications</button>
 
         <audio id="customaudio" src="https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_700KB.mp3" muted />
        
@@ -17,6 +17,9 @@
 
     <script type="text/javascript">
         var shouldPlay = false;
+        
+        var soundButton = document.getElementById("testtrigger");
+        soundButton.click();
         
         function unlockAudio() {
             var sound = document.getElementById('customaudio');
