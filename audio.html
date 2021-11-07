@@ -18,8 +18,10 @@
     <script type="text/javascript">
         var shouldPlay = false;
         
-        var soundButton = document.getElementById("testtrigger");
-        soundButton.click();
+        setTimeout(function() {
+            var soundButton = document.getElementById("testtrigger");
+            soundButton.click();
+        }, 1000);
         
         function unlockAudio() {
             var sound = document.getElementById('customaudio');
