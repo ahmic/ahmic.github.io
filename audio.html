@@ -53,11 +53,13 @@
         (function() {
             var soundButton = document.getElementById("testtrigger");
             soundButton.click();
+            
+             setInterval(function() {
+                playNow();
+            }, 5000)
         })();
         
-        setInterval(function() {
-            playNow();
-        }, 5000)
+       
     </script>
 </body>
 </html>
