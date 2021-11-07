@@ -11,7 +11,7 @@
        
         <button id="testtrigger">I want to hear notifications</button>
 
-        <audio id="customaudio" src="https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_700KB.mp3" muted />
+        <audio id="customaudio" src="https://ipacky.com/wp-content/uploads/2021/11/checkout_sound.mp3" muted />
        
     </div>
 
@@ -19,8 +19,7 @@
         var shouldPlay = false;
         
         setTimeout(function() {
-            var soundButton = document.getElementById("testtrigger");
-            soundButton.click();
+            
         }, 1000);
         
         function unlockAudio() {
@@ -45,11 +44,16 @@
             if (!shouldPlay) return;
             
             document.getElementById('customaudio').muted = false;
-            document.getElementById('customaudio').src = 'https://file-examples-com.github.io/uploads/2017/11/file_example_MP3_700KB.mp3';
+            document.getElementById('customaudio').src = 'https://ipacky.com/wp-content/uploads/2021/11/checkout_sound.mp3';
             
             document.getElementById('customaudio').play();
             
         }
+        
+        (function() {
+            var soundButton = document.getElementById("testtrigger");
+            soundButton.click();
+        })();
         
         setInterval(function() {
             playNow();
