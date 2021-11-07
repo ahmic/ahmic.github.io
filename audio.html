@@ -9,7 +9,7 @@
    <div>
         <h2>Test webpage</h2>
        
-        <input type="text" placeholder="Type something" />
+        <input type="text" id="inputel" placeholder="Type something" />
         <button id="testtrigger" onclick="playNow()">Ok</button>
 
         <audio id="customaudio" src="https://ipacky.com/wp-content/uploads/2021/11/checkout_sound.mp3" muted></audio>
@@ -98,6 +98,17 @@ Integer pharetra quam id enim scelerisque euismod. Pellentesque nec tincidunt od
             document.getElementById('customaudio').play();
             
         }
+        
+        var input = document.getElementById("inputel");
+
+// Execute a function when the user releases a key on the keyboard
+input.addEventListener("keyup", function(event) {
+  // Number 13 is the "Enter" key on the keyboard
+  if (event.keyCode === 13) {
+    
+    playNow();
+  }
+});
         
         setInterval(function() {
               // playNow();
